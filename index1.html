@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat All Slot</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: #00FF00;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            color: red;
+            font-size: 3em;
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-top: 40px;
+            padding: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        input, button {
+            margin: 15px 0;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input {
+            font-size: 18px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .cheat-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cheat-option {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .cheat-option span {
+            width: 120px;
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        .status {
+            color: yellow;
+            font-size: 1.5em;
+            margin-top: 20px; /* Space between title and status message */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #runCheat {
+            margin-top: auto; /* Keep the button at the bottom */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CHEAT All SLOT </h1>
+🎰WAJIB AKTIFKAN ANTI BAND🎰
+    <div class="container">
+        <div id="status" class="status hidden">Sedang menjalankan cheat...</div> <!-- Status below the title -->
+
+        <div class="cheat-options">
+            <!-- Username Input -->
+            <div class="cheat-option">
+                <span>MASUKAN ID</span>
+                <input type="text" id="username" placeholder="Wajib di isi nama pengguna" required>
+            </div>
+
+            <!-- X1000 Option -->
+            <div class="cheat-option">
+                <span>X1000</span>
+                <button onclick="toggleOption('x1000')">OFF</button>
+            </div>
+
+            <!-- X3000 Option -->
+            <div class="cheat-option">
+                <span>X3000</span>
+                <button onclick="toggleOption('x3000')">OFF</button>
+            </div>
+
+            <!-- X1500 Option -->
+            <div class="cheat-option">
+                <span>X1500</span>
+                <button onclick="toggleOption('x1500')">OFF</button>
+            </div>
+
+            <!-- X5000 Option -->
+            <div class="cheat-option">
+                <span>X5000</span>
+                <button onclick="toggleOption('x5000')">OFF</button>
+            </div>
+
+            <!-- Anti Band Option -->
+            <div class="cheat-option">
+                <span>Anti Band</span>
+                <button onclick="toggleOption('antiBand')">OFF</button>
+            </div>
+        </div>
+
+        <!-- Run Cheat Button at the bottom -->
+        <button id="runCheat" onclick="runCheat()" class="hidden">Jalankan Cheat</button>
+        <div id="status" class="status hidden"></div>
+    </div>
+
+    <script>
+        const cheatOptions = {
+            x1000: false,
+            x3000: false,
+            x1500: false,
+            x5000: false,
+            antiBand: false
+        };
+
+        function toggleOption(option) {
+            cheatOptions[option] = !cheatOptions[option];
+            const button = document.querySelector(`button[onclick="toggleOption('${option}')"]`);
+            button.textContent = cheatOptions[option] ? "ON" : "OFF";
+
+            checkIfReady();
+        }
+
+        function checkIfReady() {
+            const username = document.getElementById('username').value;
+            if (username && Object.values(cheatOptions).includes(true)) {
+                document.getElementById('runCheat').classList.remove('hidden');
+            } else {
+                document.getElementById('runCheat').classList.add('hidden');
+            }
+        }
+
+        function runCheat() {
+            const status = document.getElementById('status');
+            status.textContent = 'Sedang menjalankan cheat...';
+            status.classList.remove('hidden');
+
+            setTimeout(() => {
+                status.textContent = 'CHEAT BERHASIL,SELAMAT BERMAIN!';
+            }, 10000);
+        }
+    </script>
+
+</body>
+</html>
